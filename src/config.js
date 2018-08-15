@@ -1,6 +1,5 @@
-const Sequelize = require('sequelize');
-
-console.log('CONFIGURING MYSQL CONNECTION: TEST');
+import Sequelize from 'sequelize';
+import bodyParser from 'body-parser';
 
 const sequelize = new Sequelize('test', 'root', '', {
     host: 'localhost',
@@ -17,4 +16,9 @@ const sequelize = new Sequelize('test', 'root', '', {
     operatorsAliases: false
 });
 
-module.exports = sequelize;
+import express from 'express';
+const app = express();
+
+app.use(bodyParser.json());
+
+export {app, sequelize};

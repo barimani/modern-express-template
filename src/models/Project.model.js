@@ -1,10 +1,8 @@
-const Sequelize = require('sequelize');
-const sequelize = require('./config');
-
-const User = require('./User.model');
+import Sequelize from 'sequelize';
+import {sequelize} from '../config';
 
 const Project = sequelize.define('project', {
-    name: Sequelize.STRING,
+    title: Sequelize.STRING,
 });
 
-module.exports = Project;
+export default Project;
