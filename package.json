@@ -1,0 +1,20 @@
+{
+  "name": "express-template",
+  "version": "0.0.0",
+  "description": "An experimental backend template",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack"
+  },
+  "author": "Bari Barimani",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.38.0",
+    "webpack": "^4.16.4",
+    "webpack-cli": "^3.1.0",
+    "@babel/core": "^7.0.0-beta.55",
+    "babel-loader": "^8.0.0-beta.4"
+  }
+}
