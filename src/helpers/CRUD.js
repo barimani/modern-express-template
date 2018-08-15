@@ -3,10 +3,10 @@
 export const CRUD = (app, model, url) => {
     app.get(url, getAll(model));
     app.post(url, create(model));
-    app.get(url + '/:id', get(model));
-    app.put(url + '/:id', patch(model)); //TODO update should be implemented
-    app.patch(url + '/:id', patch(model));
-    app.delete(url + '/:id', remove(model));
+    app.get(url + '/:itemId', get(model));
+    app.put(url + '/:itemId', patch(model)); //TODO update should be implemented
+    app.patch(url + '/:itemId', patch(model));
+    app.delete(url + '/:itemId', remove(model));
 };
 
 const getAll = model => (req, res) => {
@@ -14,11 +14,11 @@ const getAll = model => (req, res) => {
 };
 
 const get = model => (req, res) => {
-    const {id} = req.params;
-    model.findById().then(item => {
+    const {itemId} = req.params;
+    model.findById(itemId).then(item => {
         if (!item) {
             res.status(400);
-            res.send({message: `No such entity with id ${id} found`});
+            res.send({message: `No such entity with id ${itemId} found`});
             return;
         }
         res.send(item)
@@ -31,11 +31,11 @@ const create = model => (req, res) => {
 };
 
 const patch = model => (req, res) => {
-    const {id} = req.params;
-    model.findById(id).then(item => {
+    const {itemId} = req.params;
+    model.findById(itemId).then(item => {
         if (!item) {
             res.status(400);
-            res.send({message: `No such entity with id ${id} found`});
+            res.send({message: `No such entity with itemId ${itemId} found`});
             return;
         }
         item.update(req.body).then(updatedItem => {
@@ -45,7 +45,7 @@ const patch = model => (req, res) => {
 };
 
 const remove = model => (req, res) => {
-    const {id} = req.params;
-    model.destroy({where: {id}})
+    const {itemId} = req.params;
+    model.destroy({where: {id: itemId}})
         .then(() => res.send(200))
 };
