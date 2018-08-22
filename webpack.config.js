@@ -1,8 +1,10 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const NodemonPlugin = require( 'nodemon-webpack-plugin' );
 
 module.exports = {
     mode: 'development',
+    watch: true,
     entry: ['@babel/polyfill', './src/index.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -21,6 +23,9 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new NodemonPlugin()
+    ],
     externals: [nodeExternals()],
 
 };
