@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
-import {sequelize} from '../config';
+import db from './config/sequelize';
 
-const Project = sequelize.define('project', {
+const Project = db.define('project', {
     title: Sequelize.STRING,
 });
 

@@ -1,7 +1,33 @@
-import {User} from "../models";
+import {User, Project} from "../models";
 
-export const getUsers = (req, res) => {
-    User.findAll().then(projects => {
-        res.send(projects);
-    })
+export const getUsers = async (req, res) => {
+    const users = await User.findAll();
+    res.send(users);
+};
+export const createUser = async (req, res) => {
+    const {username, birthday} = req.body;
+    const user = await User.create({username, birthday});
+    res.send(user);
+};
+export const getUser = async (req, res) => {
+    const user = await User.findById(req.params.userId);
+    res.send(user);
+};
+export const getUsersProjects = async (req, res) => {
+    const user = await User.findById(req.params.userId);
+    const projects = await user.getProjects();
+    res.send(projects);
+};
+export const linkProjectToUser = async(req, res) => {
+    const userPromise = User.findById(req.params.userId);
+
+    const projectPromise = Project.findById(req.body.projectId);
+
+    const [user, project] = await Promise.all([userPromise, projectPromise]);
+    if (project && user) {
+        user.addProject(project);
+        res.send(200);
+    } else {
+        res.send(500);
+    }
 };

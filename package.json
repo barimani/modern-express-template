@@ -20,6 +20,8 @@
     "webpack-cli": "^3.1.0"
   },
   "devDependencies": {
+    "@babel/plugin-transform-async-to-generator": "^7.0.0-rc.2",
+    "@babel/polyfill": "^7.0.0-rc.2",
     "@babel/preset-env": "^7.0.0-rc.1",
     "webpack-node-externals": "^1.7.2"
   }

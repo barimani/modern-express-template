@@ -1,8 +1,7 @@
-import {app} from "../config";
-import {CRUD} from "../helpers/CRUD";
-import {Project, User} from "../models";
+import app from "../express";
+import userRoute from './users.route';
+import projectRoute from './project.route';
 
-export const setupControllers = () => {
-    CRUD(app, Project, '/projects');
-    CRUD(app, User, '/users');
-};
+app.use('/users', userRoute);
+app.use('/projects', projectRoute);
+

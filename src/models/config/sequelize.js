@@ -1,7 +1,6 @@
 import Sequelize from 'sequelize';
-import bodyParser from 'body-parser';
 
-const sequelize = new Sequelize('test', 'root', '', {
+const db = new Sequelize('test', 'root', '', {
     host: 'localhost',
     dialect: 'mysql',
 
@@ -16,9 +15,4 @@ const sequelize = new Sequelize('test', 'root', '', {
     operatorsAliases: false
 });
 
-import express from 'express';
-const app = express();
-
-app.use(bodyParser.json());
-
-export {app, sequelize};
+export default db;

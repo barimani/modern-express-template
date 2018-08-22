@@ -1,5 +1,5 @@
-import User from './User.model'
-import Project from './Project.model'
+import User from '../User.model'
+import Project from '../Project.model'
 
 export default () => {
     User.belongsToMany(Project, {through: 'UserProject'});

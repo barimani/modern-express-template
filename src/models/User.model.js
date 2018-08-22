@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
-import {sequelize} from '../config';
+import db from './config/sequelize';
 
-const User = sequelize.define('user', {
+const User = db.define('user', {
     username: Sequelize.STRING,
     birthday: Sequelize.DATE
 });

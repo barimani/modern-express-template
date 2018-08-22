@@ -1,8 +1,11 @@
-import {app} from './config';
-import {setupControllers} from "./controllers";
+import app from './express';
 
 
-setupControllers();
+// Just to run the db connection once
+import './models/index';
+
+// Sets up the routes
+import './controllers';
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
 
