@@ -2,8 +2,9 @@ import Sequelize from 'sequelize';
 import db from './config/sequelize';
 
 const User = db.define('user', {
-    username: Sequelize.STRING,
-    birthday: Sequelize.DATE
+    email: Sequelize.STRING,
+    birthday: Sequelize.DATE,
+    password: Sequelize.STRING,
 });
 
 export default User;

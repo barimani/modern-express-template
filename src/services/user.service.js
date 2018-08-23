@@ -7,8 +7,8 @@ export const getUsers = async (req, res) => {
 };
 
 export const createUser = async (req, res) => {
-    const {username, birthday} = req.body;
-    const user = await User.create({username, birthday});
+    const {email, birthday, password} = req.body;
+    const user = await User.create({email, birthday, password});
 
     res.send(user);
 };
