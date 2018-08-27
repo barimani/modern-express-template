@@ -1,4 +1,4 @@
-import {Project} from "../models";
+import {Project} from "../models/index.ts";
 
 export const getProjects = async (req, res) => {
     const projects = await Project.findAll();

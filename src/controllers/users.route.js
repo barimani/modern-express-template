@@ -1,5 +1,5 @@
 import express from 'express';
-import {createUser, getUser, getUsers, getUsersProjects, linkProjectToUser} from "../services/user.service";
+import {createUser, getUser, getUsers, getUsersProjects, linkProjectToUser} from "../services/user.service.ts";
 
 const router = express.Router({});
 router.get('/', getUsers);

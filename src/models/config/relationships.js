@@ -1,4 +1,4 @@
-import User from '../User.model'
+import User from '../User.repository.ts'
 import Project from '../Project.model'
 
 export default () => {
